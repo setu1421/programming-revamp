@@ -1,0 +1,10 @@
+# Find element immediate less than a particular value or immediate greater than a particular value.
+  -> set.lower_bound(n) ->  Returns an iterator pointing to the element in the container which is equivalent to k passed in the parameter. In case k is not present in the set container, the function returns an iterator pointing to the immediate next element which is just greater than k.
+  -> set.upper_bound(n) -> Returns an iterator pointing to the immediate next element which is just greater than k
+  
+# Fill an array with particular value
+  -> memset(arr, -1, sizeof(arr)) -> The memset() can be used to set all values to 0 or -1. But we cannot use some other values, because memset() works byte by byte.
+  -> fill_n(arr, sizeof(arr), 10) -> Can be used to set all values to 10.
+  -> fill_n(&arr[0][0], n * m, 10) -> Can ve used to fill 2d array.
+  
+  
