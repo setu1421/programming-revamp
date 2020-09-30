@@ -7,4 +7,18 @@
   -> fill_n(arr, sizeof(arr), 10) -> Can be used to set all values to 10.
   -> fill_n(&arr[0][0], n * m, 10) -> Can ve used to fill 2d array.
   
+# Convert numerical value to string
+  -> to_string(int val)
+# Convert string to integer
+  -> stoi(string s) 
+# Convert strint to const char. Needed for strlen(const char *s)
+  -> strlen(str.c_str())  
+# Convert negative remainder to positive remainder
+  -> (x + d) %d
+# Find the number of elements less than or equal to a number in an array (upper_bound)
+  -> upper_bound(v.begin(), v.end(), 34) - v.begin() // This returns the number of elements present in the 
+  -> The elements in the range shall already be sorted or at least partitioned with respect to val
+    
+  
+  
   
