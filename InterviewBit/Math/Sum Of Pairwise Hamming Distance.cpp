@@ -1,3 +1,5 @@
+// https://www.geeksforgeeks.org/sum-of-bit-differences-among-all-pairs/
+
 int M = 1000000007;
 
 int Solution::hammingDistance(const vector<int> &A) {

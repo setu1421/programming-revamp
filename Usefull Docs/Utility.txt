@@ -18,7 +18,13 @@
 # Find the number of elements less than or equal to a number in an array (upper_bound)
   -> upper_bound(v.begin(), v.end(), 34) - v.begin() // This returns the number of elements present in the 
   -> The elements in the range shall already be sorted or at least partitioned with respect to val
-    
-  
+# Rotate an array. ->  It rotates the order of the elements in the range [first,last], in such a way that the element pointed by middle becomes the new first element
+  -> rotate(v.begin(), v.begin() + 2, v.end()); -> This will rotate two time from left.
+  -> rotate(v.begin(), v.begin() v.size() - 2, v.end()); -> This will rotate two time from left.
+  -> Middle parameter will be the first element in the array.
+# Compare two string for equality.
+  -> str1.compare(str2) -> Returns 0 if equal
+  -> Return < 0 if str1 is less   
+ 
   
   
