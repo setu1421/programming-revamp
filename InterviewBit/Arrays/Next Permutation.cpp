@@ -33,7 +33,7 @@ vector<int> Solution::nextPermutation(vector<int> &A) {
         i--;
     }
 
-    // Already in ascending order
+    // Already in descending order
     if(i == 0)
     {
         reverse_array(A, 0, n - 1);
