@@ -37,3 +37,29 @@ vector<int> Solution::findPerm(const string A, int B) {
 
     return result;
 }
+
+// Another Solution:
+
+vector Solution::findPerm(const string A, int B) {
+
+vector<int> result;
+
+int current_smallest = 1;
+int current_largest = B;
+
+for(int i = 0; i < A.size(); i++){
+    if(A[i] == 'I'){
+        result.push_back(current_smallest);
+        current_smallest++;
+    }else{
+        result.push_back(current_largest);
+        current_largest--;
+    }
+}
+ if(A[ A.size() - 1] == 'I'){
+        result.push_back(current_smallest);
+    }else{
+        result.push_back(current_largest);
+    }
+return result;
+}

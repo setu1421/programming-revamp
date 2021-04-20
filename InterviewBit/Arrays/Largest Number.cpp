@@ -13,24 +13,15 @@ string Solution::largestNumber(const vector<int> &A) {
     }
     
     sort(v.begin(), v.end(), mycompare);
-    
-    bool firstNonZeroFound = false;
-    for(int i = 0; i < v.size(); i++)
+    // Check if the first number in the sorted array is zero, then larget number will only be 0.
+    if(stoi(v[0]) == 0)
     {
-        if(stoi(v[i]) == 0 && !firstNonZeroFound)
-        {
-            continue;
-        } else
-        {
-            firstNonZeroFound = true;
-        }
-        
-        result += v[i];
+        return "0";
     }
     
-    if(result == "")
+    for(int i = 0; i < v.size(); i++)
     {
-        result = "0";
+        result += v[i];
     }
     
     return result;

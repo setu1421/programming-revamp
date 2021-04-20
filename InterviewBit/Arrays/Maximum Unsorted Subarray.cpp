@@ -45,15 +45,17 @@ vector<int> Solution::subUnsort(vector<int> &A) {
         if(A[i] > min_val)
         {
             start = i;
+			break;
         }
     }
     
     // Adjust the end if any smalller element present after the end
-    for(int i = end + 1; i < n; i++)
+    for(int i = n - 1; i > end; i--)
     {
         if(A[i] < max_val)
         {
             end = i;
+            break;
         }
     }
     

@@ -1,4 +1,6 @@
 // Proof: https://neolzs.wordpress.com/2016/02/01/boyer-moore-majority-vote-algorithm-a-simple-proof/
+// https://www.youtube.com/watch?v=n5QY3x_GNDg&t=30s
+// https://www.youtube.com/watch?v=3lh0j3YRH50
 int Solution::repeatedNumber(const vector<int> &A) {
     int n = A.size();
     
@@ -44,7 +46,7 @@ int Solution::repeatedNumber(const vector<int> &A) {
     if(count1 > (n / 3))
     {
         return firstME;
-    } else if(count2 > (n / 2))
+    } else if(count2 > (n / 3))
     {
         return secondME;
     } else 

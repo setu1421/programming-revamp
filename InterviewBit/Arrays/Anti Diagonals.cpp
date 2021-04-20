@@ -43,3 +43,23 @@ vector<vector<int> > Solution::diagonal(vector<vector<int> > &A) {
     
     return result;
 }
+
+
+// Another approach:
+
+// Function to print diagonals
+vector<vector<int> > Solution::diagonal(vector<vector<int> > &A) {
+{
+ 
+    int n = A.size();
+ 
+    vector<vector<int> > result(2 * n - 1);
+ 
+    // Push each element in the result vector
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < n; j++)
+            result[i + j].push_back(A[i][j]);
+   
+
+    return result;
+}

@@ -1,3 +1,4 @@
+// https://www.youtube.com/watch?v=Oop18EH4T28
 int Solution::solve(vector<int> &A, int B) {
     int n = A.size();
     int ans = 0;
