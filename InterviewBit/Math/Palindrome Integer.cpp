@@ -1,6 +1,14 @@
 int Solution::isPalindrome(int A) {
     int n = A;
+	// negative numbers are not palindromic.
+	if(A < 0)
+	{
+		return 0;
+	}
+	
     int total = 0;
+	
+
     
 	// Getting the last digit using mod and building the sum from front
     while(n > 0)

@@ -1,5 +1,6 @@
 // https://math.stackexchange.com/questions/2877565/greatest-number-that-divides-x-and-is-coprime-with-y
 // Time: O(log A * log B)
+// https://www.youtube.com/watch?v=jK0l6RcRVKg
 int findGCD(int A, int B)
 {
     if(B == 0)
@@ -27,3 +28,4 @@ int Solution::cpFact(int A, int B) {
     
     return A;
 }
+

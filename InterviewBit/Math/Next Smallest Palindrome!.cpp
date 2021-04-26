@@ -1,5 +1,5 @@
 // https://www.geeksforgeeks.org/given-a-number-find-next-smallest-palindrome-larger-than-this-number/
-
+// https://youtu.be/hZcindWcYI4
 
 // add one at the start and end
 // In the middle add n - 1 zeroes

@@ -6,3 +6,22 @@ int Solution::gcd(int A, int B) {
     
     return gcd(B, A % B);
 }
+
+// Using Subtraction Method
+// May throw time limit error
+int Solution::gcd(int A, int B)  
+{    
+    while(A != B)  
+    {  
+        if(A > B)  
+        {  
+            A = A - B;  
+        }  
+        else  
+        {  
+            B = B - A;  
+        }  
+    }  
+  
+    return A;  
+} 

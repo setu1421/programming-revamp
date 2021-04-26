@@ -1,3 +1,6 @@
+// https://www.youtube.com/watch?v=uUN8fVPrJn0
+// https://www.geeksforgeeks.org/lexicographic-rank-of-a-string/
+
 #define MAX_CHAR 256
 #define MOD 1000003
 #define MAX_LENGTH 27
@@ -39,7 +42,7 @@ void computeFactorial(int n)
 }
 
 int Solution::findRank(string A) {
-    int n = strlen(A.c_str());
+    int n = A.length();
     int count[MAX_CHAR] = {0};
     long long ans = 1;
     
@@ -53,7 +56,7 @@ int Solution::findRank(string A) {
         // Update the character count for greater than and equal to the character
         // as one character will appear only once and we have fixed the position of this
         // particular character
-        updateCharacterCount(count, c);
+        updateCharacterCount(count, c); // Though the solution says O(N) time complexity. May be thinking the updateCharacterCount functions as amortized O(1) (Not Sure)
     }
 
     return ans % MOD;

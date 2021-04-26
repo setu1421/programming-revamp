@@ -1,5 +1,6 @@
 // https://www.youtube.com/watch?v=G3n0WAWO3s0 (Multiplicative Modular Inverse)
-// https://www.youtube.com/watch?v=L-Wzglnm4dM (Modular expo
+// https://www.youtube.com/watch?v=L-Wzglnm4dM (Modular exponentiation)
+// https://www.geeksforgeeks.org/lexicographic-rank-string-duplicate-characters/
 
 
 #define MAX_LENGTH 1000003

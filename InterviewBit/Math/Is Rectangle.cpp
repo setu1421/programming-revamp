@@ -1,4 +1,5 @@
 int Solution::solve(int A, int B, int C, int D) {
+	// Need to keep in mind that Square is also rectangle
     if(A == B == C == D)
     {
         return 1;
@@ -18,6 +19,7 @@ int Solution::solve(int A, int B, int C, int D) {
 }
 
 //Another Solution: Using unordered_map
+// Need to keep in mind that Square is also rectangle
 int Solution::solve(int A, int B, int C, int D) {
    unordered_map<int, int> mp;
    
