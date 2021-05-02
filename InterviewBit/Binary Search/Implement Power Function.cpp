@@ -29,6 +29,7 @@ int Solution::pow(int x, int n, int d) {
     long long ans = modPow(x, n, d);
     
     // Make negative remainder to positive remainder
+	// x : -1, B : 1, C : 20, should return 19
     if(ans < 0)
     {
         ans = (ans + d) % d;

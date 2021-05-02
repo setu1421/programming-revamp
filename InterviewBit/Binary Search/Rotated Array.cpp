@@ -39,3 +39,12 @@ int Solution::findMin(const vector<int> &A) {
     
     return A[ans];
 }
+
+/* For having duplicate Entries, we have to use linear search
+
+Binary search works because we are able to identify that there are essentially “two sorted portions” in our array. E.g. : 5 6 7 1 2 3 4 , here 5 6 7 and 1 2 3 4 are the two portions.
+
+However in case of duplicates we would not be able to identify the portions.
+E.g. 2 2 2 1 2 2 2.
+Here if we land on an index with value 2, we won’t be able to tell whether it is on left side of 1 or right side of 1.
+*/

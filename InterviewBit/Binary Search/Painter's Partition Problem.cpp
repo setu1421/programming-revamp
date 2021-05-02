@@ -55,4 +55,4 @@ int Solution::paint(int A, int B, vector<int> &C) {
     
 }
 
-// Another approach: DP approach (https://www.youtube.com/watch?v=zNVT8SnGRig&t=983s)
+// Another approach: DP approach (https://www.youtube.com/watch?v=zNVT8SnGRig&t=983s) (Time Complexity: k*N^2)

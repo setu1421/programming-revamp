@@ -9,6 +9,7 @@ double Solution::findMedianSortedArrays(const vector<int> &A, const vector<int> 
         return findMedianSortedArrays(B, A);
     }
     
+	// there can be empty arrays
     int low = 0, high = x;
     
     while(low <= high)

@@ -74,3 +74,13 @@ int Solution::books(vector<int> &A, int B) {
     return (int) ans;
     
 }
+
+/* Similar Problems:
+1. Aggressive cow (Spoj)
+2. Roti Prata (Spoj)
+3. Eko (Spoj)
+4. Minimum Number of Days to Make m Bouquets (leetcode)
+5. Find the Smallest Divisor Given a Threshold (leetcode)
+6. Divide Chocolate (leetcode)
+7. Google kickstart A Q-3 2020
+*/
