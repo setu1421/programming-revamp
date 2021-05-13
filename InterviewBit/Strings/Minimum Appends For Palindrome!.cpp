@@ -36,3 +36,11 @@ int Solution::solve(string A) {
     
     return A.length() - matched_palindrome_count;
 }
+
+/*
+Example: Suppose A = “efaba”
+Lets form another string B = reverse(A) + “$” + A = “abafe$efaba”
+Compute LPS Array
+So last value of lps array will be 3 which implie(“aba” is a palindrome)
+So we need len(A)-3 appends i.e 2
+*/

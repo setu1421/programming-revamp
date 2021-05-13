@@ -32,7 +32,7 @@ int Solution::solve(int A) {
     return counter;
 }
 
-// Another Approach: if A is less than 10^6 so that we don't get memory limit
+// Another Approach: if A is less than 10^6 so that we will not get memory limit exceed error.
 // x/2 = y : the number of bits in y is same as x for even number but 1 addition for odd number
 // no of bits of x = no of bits of y (even number)
 // no of bits of x = no of bits of y + 1 (odd number)

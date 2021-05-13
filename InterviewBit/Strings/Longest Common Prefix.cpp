@@ -26,7 +26,7 @@ string Solution::longestCommonPrefix(vector<string> &A) {
     return A[0].substr(0, minN);
 }
 
-// Another Approach: Using Binary Search on the small array.
+// Best Approach: Using Binary Search on the small array.
 // Time Complexity: log(min(length of all strings)) * no of strings
 
 string Solution::longestCommonPrefix(vector<string> &A) {
@@ -35,11 +35,11 @@ string Solution::longestCommonPrefix(vector<string> &A) {
 
     for(int i = 0; i < n; i++)
     {
-        int len = strlen(A[i].c_str());
+        int len = A[i].length();
         minN = min(minN, len);
     }
     
-    int low = 0, high = minN - 1;
+    int low = 0, high = minN - 1, ans = INT_MIN;
     
     while(low <= high)
     {
@@ -59,10 +59,18 @@ string Solution::longestCommonPrefix(vector<string> &A) {
         
         if(!notMatched)
         {
+            ans = max(ans, mid);
             low = mid + 1;
         }
     }
     
-    return A[0].substr(0, high + 1);
+    if(ans == INT_MIN)
+    {
+        return "";
+    } else
+    {
+        return A[0].substr(0, ans + 1);
+    }
 }
+
 

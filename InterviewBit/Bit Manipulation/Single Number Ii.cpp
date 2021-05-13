@@ -1,3 +1,4 @@
+// Time Complexity: O(32 * n)
 int Solution::singleNumber(const vector<int> &A) {
     int n = A.size();
     int res = 0;
