@@ -1,35 +1,26 @@
+// https://www.youtube.com/watch?v=QPfalDbqa4A
 int Solution::solve(vector<int> &A, int B) {
-    int n = A.size();
-    int wL = 0, wR = 0, zeroCount = 0, maxSeg = 0;
+    int n = A.size(), j = -1, count = 0, best_len = 0;
     
-    while(wL < n && wR < n)
+    for(int i = 0; i < n; i++)
     {
-        if(zeroCount <= B)
+        if(A[i] == 0)
         {
-            if(A[wR] == 0)
+            count++;
+        }
+        
+        while(count > B)
+        {
+            j++;
+            if(A[j] == 0)
             {
-                zeroCount++;
+                count--;
             }
-            wR++;
         }
         
-        if(zeroCount > B)
-        {
-            if(A[wL] == 0)
-            {
-                zeroCount--;
-            }
-            
-            wL++;
-        }
-        
-        int currSeg = wR - wL;
-        
-        if((currSeg > maxSeg) && (zeroCount <= B))
-        {
-            maxSeg = currSeg;
-        }
+        int curr_len = i - j;
+        best_len = max(best_len, curr_len);
     }
     
-    return maxSeg;
+    return best_len;
 }

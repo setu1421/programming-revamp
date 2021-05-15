@@ -1,7 +1,7 @@
 /*
 Method 1: Brute Force
 The simplest method is to run two loops, the outer loop picks the first element (smaller element) and the inner loop looks for the element picked by outer loop plus B.
-Time complexity of this method is O(N2). This wil not work lets us look on an optimized method.
+Time complexity of this method is O(N^2). This wil not work lets us look on an optimized method.
 
 Method 2: Sorting + Binary Search
 We can use sorting and Binary Search to improve time complexity to O(NLogN).
@@ -58,6 +58,8 @@ int Solution::solve(vector<int> &A, int B) {
 
 // Another solution using Hashing
 int Solution::solve(vector<int> &A, int B) {
+	if(B == 0) return 0;
+	
     int n = A.size();
     unordered_map<int, int>mp;
     
@@ -65,9 +67,7 @@ int Solution::solve(vector<int> &A, int B) {
     {
         mp[A[i]] = 1;
     }
-    
-    if(B == 0) return 0;
-    
+   
     for(int i = 0; i < n; i++)
     {
         if(mp.find(A[i] + B) != mp.end())
@@ -81,8 +81,6 @@ int Solution::solve(vector<int> &A, int B) {
 }
 
 int Solution::solve(vector<int> &A, int B) {
-    int n = A.size();
-    
     unordered_map<int, int> umap;
     for(auto it: A)
     {

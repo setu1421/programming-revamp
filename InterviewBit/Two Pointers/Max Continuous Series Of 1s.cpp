@@ -16,8 +16,8 @@ vector<int> Solution::maxone(vector<int> &A, int B) {
             wR++;
         }
         
-        // If count of zero is greater than B, then slide the window from left
-        if(countOfZero > B)
+        // If count of zero is greater than B, then slide the window from left untill the number of zero is equal to B in the window
+        while(countOfZero > B)
         {
             // if the start element of the window is 0, then decrement count of zero
             if(A[wL] == 0)
@@ -41,6 +41,43 @@ vector<int> Solution::maxone(vector<int> &A, int B) {
     
     vector<int> res;
     for(int i = bestwL; i < bestwR; i++)
+    {
+        res.push_back(i);
+    }
+    
+    return res;
+}
+
+//
+
+vector<int> Solution::maxone(vector<int> &A, int B) {
+    int n = A.size(), i = -1, count = 0;
+    int best_start = 0, best_len = 0;
+    
+    for(int j = 0; j < n; j++)
+    {
+        if(A[j] == 0) count++;
+        
+        while(count > B)
+        {
+            i++;
+            if(A[i] == 0)
+            {
+                count--;
+            }
+        }
+        
+        int curr_len = j - i;
+        if(curr_len > best_len)
+        {
+            best_len = curr_len;
+            best_start = i + 1;
+        }
+    }
+    
+    vector<int> res;
+    
+    for(int i = best_start; i < best_start + best_len; i++)
     {
         res.push_back(i);
     }

@@ -39,3 +39,18 @@ int Solution::threeSumClosest(vector<int> &A, int B) {
     
     return closestSum;
 }
+
+
+/*
+Lets sort the array.
+When the array is sorted, try to fix the least integer by looping over it.
+Lets say the least integer in the solution is arr[i].
+
+Now we need to find a pair of integers j and k, such that arr[j] + arr[k] is closest to (target - arr[i]).
+To do that, let us try the 2 pointer approach.
+If we fix the two pointers at the end ( that is, i+1 and end of array ), we look at the sum.
+
+1. If the sum is smaller than the sum we need to get to, we increase the first pointer.
+2. If the sum is bigger, we decrease the end pointer to reduce the sum.
+
+*/
