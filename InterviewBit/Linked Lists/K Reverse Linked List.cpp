@@ -61,3 +61,23 @@ ListNode* Solution::reverseList(ListNode* A, int B) {
     
     return new_head;
 }
+
+// Another approach: Using Recursion
+
+ListNode* Solution::reverseList(ListNode* A, int B) {
+    ListNode *curr = A, *prev = NULL, *next = NULL;
+    int cnt =0;
+     while(cnt<B && curr) {
+         next = curr->next;
+         curr->next = prev;
+         prev = curr;
+         curr = next;
+         cnt++;
+     }
+	 // If next sublist is present, then reverse that sublist and add with the previus sublist.
+     if(next) {
+         A->next = reverseList(next, B);
+     }
+	 // prev is the new head of the sublist
+     return prev;
+}

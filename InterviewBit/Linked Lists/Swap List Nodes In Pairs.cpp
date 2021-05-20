@@ -95,3 +95,40 @@ ListNode* Solution::swapPairs(ListNode* A) {
     return new_head;
 }
 
+// Another approach: Using recursion
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+ListNode* Solution::swapPairs(ListNode* A) {
+    
+    if(A == NULL || A->next == NULL) return A;
+    
+    ListNode *curr = A, *prev = NULL, *next;
+    
+    int count = 0, B = 2;
+    
+    while(count < B && curr != NULL)
+    {
+        next = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = next;
+        
+        count++;
+    }
+    
+    if(next != NULL)
+    {
+        A->next = swapPairs(next);
+    }
+    
+    return prev;
+}
+
+

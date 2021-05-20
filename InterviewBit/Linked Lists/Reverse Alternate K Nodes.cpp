@@ -66,3 +66,48 @@ ListNode* Solution::solve(ListNode* A, int B) {
     
     return newHead;
 }
+
+// Another Solution: Using recursion
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+ListNode* reverseList(ListNode* A, int B) {
+    ListNode *curr = A, *prev = NULL, *next = NULL;
+    int cnt =0;
+    
+     while(cnt < B && curr) {
+         next = curr->next;
+         curr->next = prev;
+         prev = curr;
+         curr = next;
+         cnt++;
+     }
+	 // If next sublist is present, then skip one sublist and then reverse another sublist and add with the previus sublist.
+     if(next) {
+         cnt = 0;
+         A->next = next;
+         while(cnt < B && A)
+         {
+             A = A->next;
+             cnt++;
+         }
+         
+         if(A != NULL & A->next != NULL)
+         {
+            A->next = reverseList(A->next, B); 
+         }
+     }
+	 // prev is the new head of the sublist
+     return prev;
+}
+
+ListNode* Solution::solve(ListNode* A, int B) {
+    return reverseList(A, B);
+}
+
