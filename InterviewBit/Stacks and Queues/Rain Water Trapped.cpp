@@ -1,3 +1,7 @@
+/* Basic Insight: 
+An element of the array can store water if there are higher bars on left and right. The amount of water to be stored in every element can be found out by finding the heights of bars on the left and right sides. The idea is to compute the amount of water that can be stored in every element of the array. 
+*/
+
 // Two Pointer Approach
 // https://www.geeksforgeeks.org/trapping-rain-water/
 int Solution::trap(const vector<int> &A) {
