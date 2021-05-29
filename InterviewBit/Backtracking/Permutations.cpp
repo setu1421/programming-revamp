@@ -22,3 +22,8 @@ vector<vector<int> > Solution::permute(vector<int> &A) {
     
     return res;
 }
+
+/* Time Complexity: O(time required for one permutation * no. of permutations)
+                    O(n * n!) where n is the length of the string.
+*/					
+					

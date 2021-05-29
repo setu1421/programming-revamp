@@ -29,22 +29,7 @@ void partitionUtil(unordered_map<string, bool> &palindrome_mp, vector<vector<str
 {
     if(index == A.length())
     {
-        bool isAllPalindrome = true;
-        
-        for(string str: partitions)
-        {
-            if(!checkPalindrome(str, palindrome_mp))
-            {
-                isAllPalindrome = false;
-                break;
-            }
-        }
-        
-        if(isAllPalindrome)
-        {
-            res.push_back(partitions);
-        }
-        
+        res.push_back(partitions);
         return;
     }
     // partition the string at all lengths less than the string length.
@@ -53,9 +38,13 @@ void partitionUtil(unordered_map<string, bool> &palindrome_mp, vector<vector<str
 	// and so on..
     for(int i = 1; i + index <= A.length(); i++)
     {
-        partitions.push_back(A.substr(index, i));
-        partitionUtil(palindrome_mp, res, A, partitions, index + i);
-        partitions.pop_back();
+        string temp = A.substr(index, i);
+        if(checkPalindrome(temp, palindrome_mp))
+        {
+            partitions.push_back(temp);
+            partitionUtil(palindrome_mp, res, A, partitions, index + i);
+            partitions.pop_back(); 
+        }
     }
 }
  
@@ -69,3 +58,12 @@ vector<vector<string> > Solution::partition(string A) {
    
    return res;
 }
+
+/*
+Here is the number of recursive calls:
+T(n) = T(n-1) + T(n-2) + … + T(0) => T(n)=2 * (T(n-2) + T(n-3) + …) = 4 * (T(n-3) + …) = 8 * (T(n-4) + …) = 2^(n-1)
+total O(2^n) recursive calls.
+For every call we do: 1) check ifPalindrome O(length); 2) create substring O(length)
+
+So, total time complexity will be O(n * 2^n)
+/*

@@ -35,3 +35,37 @@ vector<string> Solution::generateParenthesis(int A) {
     
     return res;
 }
+
+// Another solution:
+
+void utilsgenparen(vector<string>sol,string sub,int open,int close,int n)
+{
+    if(sub.size()== 2 * n)
+    {
+        sol.push_back(sub);
+        return;
+    }
+    if(open<n)
+    {
+        sub.push_back('(');
+        utilsgenparen(sol,sub,open + 1,close,n);
+        sub.pop_back();
+    }
+    if(open>close)
+    {
+        sub.push_back(')');
+        utilsgenparen(sol,sub,open,close + 1,n);
+        sub.pop_back();
+
+    }
+    return;
+}
+
+vector<string> Solution::generateParenthesis(int A)
+{
+    vector<string>sol;
+    string sub;
+    int open=0,close=0;
+    utilsgenparen(sol,sub,open,close,A);
+    return sol;
+}

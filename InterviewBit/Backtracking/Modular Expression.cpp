@@ -2,13 +2,15 @@ long long power(int A, int B, int C)
 {
     if(B == 0) return 1;
     
-    if(B % 2 == 0)
+    long long temp = power(A, B / 2, C);
+    temp = (temp * temp) % C;
+    
+    if(B & 1)
     {
-        return (power(A, B / 2, C) * power(A, B / 2, C)) % C;
-    } else
-    {
-        return (power(A, B - 1, C) * A) % C;
+        temp = (temp * A) % C;
     }
+    
+    return temp;
 }
 
 int Solution::Mod(int A, int B, int C) {
@@ -17,6 +19,7 @@ int Solution::Mod(int A, int B, int C) {
     {
         A = (A + C);
     }
+    
     if(A == 0) return 0;
     
     return power(A, B, C);

@@ -2,7 +2,6 @@ void combineSumUtil(set<vector<int> > &ans, vector<int> &A, int B, vector<int> s
 {
     if(sum == B)
     {
-        sort(subset.begin(), subset.end());
         ans.insert(subset);
         return;
     }
@@ -28,7 +27,6 @@ vector<vector<int> > Solution::combinationSum(vector<int> &A, int B) {
     
     vector<vector<int> > final_res;
     final_res.assign(ans.begin(), ans.end());
-    sort(final_res.begin(), final_res.end());
     
     return final_res;
 }

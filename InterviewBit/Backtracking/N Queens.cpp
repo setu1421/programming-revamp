@@ -19,7 +19,7 @@ bool isValidPos(vector<pair<int, int> > &v, int row, int col)
 
 void solveNQueensUtil(vector<vector<string> > &res, vector<pair<int, int> > &v, int n, int row)
 {
-    if(row == n && v.size() == n)
+    if(row == n)
     {
         vector<string> ans;
         
@@ -32,11 +32,6 @@ void solveNQueensUtil(vector<vector<string> > &res, vector<pair<int, int> > &v, 
         
         res.push_back(ans);
         
-        return;
-    }
-    
-    if(row == n)
-    {
         return;
     }
     
