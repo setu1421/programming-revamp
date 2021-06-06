@@ -1,17 +1,10 @@
 vector<int> Solution::lszero(vector<int> &A) {
-    int n = A.size(), maxlen = 0, start = -1, sum = 0;
+    int n = A.size(), maxlen = 0, start = INT_MAX, sum = 0;
     unordered_map<int, int>mp;
     
     for(int i = 0; i < n; i++)
     {
         sum += A[i];
-        // If we encounter 0 and maxlen is at this point, then this can be a start point.
-		// For example: 1 0 3 (second element will be the start point)
-        if(A[i] == 0 &&  maxlen == 0)
-        {
-            maxlen = 1;
-            start = i;
-        }
         
 		// If sum is zero, then maxlen will be till this point as we are summing from first element.
 		// So, the start point will be 0 as well.
@@ -40,18 +33,56 @@ vector<int> Solution::lszero(vector<int> &A) {
         }
     }
     
-    if(maxlen == 0)
+    vector<int>res;
+    
+    for(int i = start; i < (start + maxlen); i++)
     {
-        return {};
-    } else
-    {
-        vector<int>res;
-        
-        for(int i = start; i < (start + maxlen); i++)
-        {
-            res.push_back(A[i]);
-        }
-        
-        return res;
+        res.push_back(A[i]);
     }
+    
+    return res;
 }
+
+// Another Solution: Using prefix sum and if we get the same sum again, then the middle part is zero.
+vector<int> Solution::lszero(vector<int> &A) {
+    int n = A.size(), best_len = INT_MIN, best_start = INT_MAX;
+    unordered_map<int, int> mp;
+    
+    int prefix_sum[n];
+    prefix_sum[0] = A[0];
+    
+    for(int i = 1; i < n; i++)
+    {
+        prefix_sum[i] = prefix_sum[i - 1] + A[i];
+    }
+    
+    for(int i = 0; i < n; i++)
+    {
+        if(prefix_sum[i] == 0)
+        {
+            best_len = i + 1;
+            best_start = 0;
+        } else if(mp.find(prefix_sum[i]) != mp.end())
+        {
+            int curr_len = i - mp[prefix_sum[i]];
+            
+            if(curr_len > best_len || curr_len == best_len && best_start > mp[prefix_sum[i]])
+            {
+                best_len = curr_len;
+                best_start = mp[prefix_sum[i]] + 1;
+            }
+        } else
+        {
+            mp[prefix_sum[i]] = i;
+        }
+    }
+
+    vector<int> res;
+    for(int i = best_start; i < best_start + best_len; i++)
+    {
+        res.push_back(A[i]);
+    }
+    
+    return res;
+}
+

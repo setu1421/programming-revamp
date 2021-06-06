@@ -11,7 +11,7 @@ int Solution::solve(vector<int> &A, int B) {
             count++;   
         } else
         {
-            mp[A[i]] = i;
+            mp[A[i]] = 1;
         }
     }
     

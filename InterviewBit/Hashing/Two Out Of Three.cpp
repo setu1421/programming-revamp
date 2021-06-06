@@ -96,3 +96,21 @@ vector<int> Solution::solve(vector<int> &A, vector<int> &B, vector<int> &C) {
     return res;
 }
 
+// Another Solution:
+const int mxn = 100005, N = 100000;
+vector<int> Solution::solve(vector<int> &A, vector<int> &B, vector<int> &C) {
+    vector<bool> visA(mxn,false);
+    vector<bool> visB(mxn,false);
+    vector<bool> visC(mxn,false);
+    
+    for(auto it:A) visA[it] = true;
+    for(auto it:B) visB[it] = true;
+    for(auto it:C) visC[it] = true;
+    
+    vector<int> ans;
+    
+    for(int i=1;i<=N;i++) if((int)visA[i]+(int)visB[i]+(int)visC[i]>=2) ans.push_back(i);
+    
+    return ans;
+}
+

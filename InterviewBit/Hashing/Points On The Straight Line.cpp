@@ -1,3 +1,9 @@
+// Let's say, we have points: (1, 1), (2, 2), (1, 0) (3, 3)
+// Now, when we are taking (2, 2) as reference point and calculating slope with (1, 0) and (3, 3), 
+// we are not taking (1, 1) into consideration in the inner loop. This is because, when we had taken (1, 1) as
+// reference point, we already counted the same slope points ( (1, 1,), (2, 2) and (3, 3) ). 
+// So, if we don't consider (1, 1) for (2, 2), it won't matter.
+
 int Solution::maxPoints(vector<int> &A, vector<int> &B) {
     int n = A.size();
     // If only two or less points present, then return n.

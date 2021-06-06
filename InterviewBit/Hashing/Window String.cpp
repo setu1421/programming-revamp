@@ -25,7 +25,8 @@ string Solution::minWindow(string A, string B) {
 			// Decrement the count in the map for that character.
             mp[A[j]]--;
             // If the character is part of the matched sequence, then increment count.
-			// For example: A -> AAABC B-> ABC, so we won't take increment count for A after taking one A.
+			// For example: A -> AAABC, if we need to check A for once and but everytime we will not increment count
+			// since A will be counted twice then.
             if(mp[A[j]] >= 0)
             {
                 count++;

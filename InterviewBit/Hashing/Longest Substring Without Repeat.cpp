@@ -29,3 +29,28 @@ int Solution::lengthOfLongestSubstring(string A) {
     
     return max_len;
 }
+
+// Better Approach: Without erasing the keys.
+int Solution::lengthOfLongestSubstring(string A)
+{
+    int n = A.size();
+    int i = -1, j = 0;
+    int max_len = 1;
+    unordered_map<char,int> map;
+    
+    while(j < n)
+    {
+		// If we find the same character, then we need to decrease the window to the maximum index to get window with unique characters.
+		// For example: abcac. when we get c character, i will be at 0, mp[c] is 2, so we will take 2 to get window with unique characters.
+        if(map.find(A[j]) != map.end())
+        {
+            i = max(i, map[A[j]]);
+        }
+
+        max_len = max(max_len, j - i);
+        map[A[j]] = j;
+        j++;
+    }
+
+    return max_len;
+}

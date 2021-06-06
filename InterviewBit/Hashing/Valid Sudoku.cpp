@@ -12,7 +12,7 @@ int Solution::isValidSudoku(const vector<string> &A) {
             {
                 string rowHashKey = "row" + to_string(i) + A[i][j];
                 string colHashKey = "col" + to_string(j) + A[i][j];
-                string boxHashKey = "box" + to_string(((i / 3) * 3) + (j / 3)) + A[i][j];
+                string boxHashKey = "box" + to_string(i / 3) + "-" + to_string (j / 3) + A[i][j];
                 
                 if(mp.find(rowHashKey) != mp.end() || mp.find(colHashKey) != mp.end()
                    || mp.find(boxHashKey) != mp.end())
